@@ -29,7 +29,7 @@ COPY . /root/tf-openpose/
 WORKDIR /root/tf-openpose/
 
 RUN cd /root/tf-openpose/ && pip3 install -U setuptools && \
-pip3 install -r ./requirements.txt
+pip3 install -r /root/tf-openpose/requirements.txt
 #pip3 install tensorflow && pip3 install -r requirements.txt
 
 RUN cd /root && git clone https://github.com/cocodataset/cocoapi && \
