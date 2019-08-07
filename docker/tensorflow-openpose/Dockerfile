@@ -1,8 +1,6 @@
 #FROM ubuntu:16.04
 FROM tensorflow/tensorflow:1.8.0-gpu-py3
 
-RUN mkdir /root/tmp &&\
-COPY ./requirements.txt /root/tmp 
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
 
@@ -30,6 +28,7 @@ apt-get clean && rm -rf /tmp/* /var/tmp* /var/lib/apt/lists/* && \
 rm -f /etc/ssh/ssh_host_* && rm -rf /usr/share/man?? /usr/share/man/??_*
 
 COPY . /root/tf-openpose/
+COPY ./requirements.txt /root/tf-openpose/
 WORKDIR /root/tf-openpose/
 
 RUN cd /root/tf-openpose/ && pip3 install -U setuptools && \
