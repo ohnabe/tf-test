@@ -32,8 +32,9 @@ COPY ./requirements.txt /root/tf-openpose/
 WORKDIR /root/tf-openpose/
 
 RUN cd /root/tf-openpose/ && pip3 install -U setuptools && \
-pip3 install -r /root/tf-openpose/requirements.txt
+#pip3 install -r /root/tf-openpose/requirements.txt
 #pip3 install tensorflow && pip3 install -r requirements.txt
+pip3 install argparse dill fire matplotlib numba psutil pycocotools requests scikit-image scipy slidingwindow tqdm pandas git+https://github.com/ppwwyyxx/tensorpack.git
 
 RUN cd /root && git clone https://github.com/cocodataset/cocoapi && \
 pip3 install cython && \
